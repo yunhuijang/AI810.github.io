@@ -14,12 +14,12 @@ Recent advances in large language models (LLMs) have revolutionized fields such 
 
 Traditional protein structure prediction relied heavily on physics-based simulations, which is very slow. A breakthrough came with AlphaFold2, which leverages multiple sequence alignments (MSAs) and attention-based neural networks to infer 3D structure from amino acid sequences. However, generating MSAs is computationally expensive, as it involves searching massive databases to identify related sequences and aligning them to identify conserved subsequences.
 
-![image](https://hackmd.io/_uploads/r1XUeSHMgg.png)
+<img src="https://hackmd.io/_uploads/r1XUeSHMgg.png" alt="MSA: computationally expensive alignment to identify conserved mutations" width="400px">
 *MSA: computationally expensive alignment to identify conserved mutations*
 
 In contrast, the protein language models including the ESM series bypass this step by treating protein sequences as a language. These models are trained on millions of protein sequences and learn rich contextual embeddings directly from sequence data. Notably, they capture structural constraints, folding patterns, and even functioning, which is analogous to how GPT learns grammar and semantics from text.
 
-![image](https://hackmd.io/_uploads/ryhSLBrzll.png)
+<img src="https://hackmd.io/_uploads/ryhSLBrzll.png" alt="Protein language models" width="400px">
 *Protein language models*
 
 ⸻
@@ -54,7 +54,7 @@ Next, the learned representation is passed to a folding trunk. The trunk begins 
 Finally, the updated representations are passed to an equivariant transformer module, which predicts the 3D coordinates of atoms. This ensures that the physical consistency of the predicted structure is preserved.
 
 
-In contrast to AlphaFold, which relies on heavy use of MSA-based templates, ESM-2’s structure module is MSA-free and more modular, enabling faster predictions while retaining competitive accuracy.
+In contrast to AlphaFold, which relies on heavy use of MSA-based templates, ESM-2's structure module is MSA-free and more modular, enabling faster predictions while retaining competitive accuracy.
 
 ### Experiments and results
 
@@ -63,7 +63,7 @@ Here, the experiments validate that ESMFold is not only fast and scalable but al
 
 #### Structure prediction accuracy
 
-ESMFold produces accurate atomic-resolution predictions, achieving performance comparable to RoseTTAFold on the CAMEO benchmark. Notably, when MSAs are omitted in AlphaFold [3] and RoseTTAFold [6], their accuracy significantly declines. This highlights the robustness of ESMFold’s MSA-free architecture and validates the effectiveness of language model-based representations in capturing structural information directly from sequence alone. 
+ESMFold produces accurate atomic-resolution predictions, achieving performance comparable to RoseTTAFold on the CAMEO benchmark. Notably, when MSAs are omitted in AlphaFold [3] and RoseTTAFold [6], their accuracy significantly declines. This highlights the robustness of ESMFold's MSA-free architecture and validates the effectiveness of language model-based representations in capturing structural information directly from sequence alone. 
 
 
 
@@ -99,7 +99,7 @@ The goal of ESM-3 is to take a significant step beyond ESM-2 by exploring the po
 
 ### Architecture
 
-Models such as ESM-2 remain constrained by the limitations of the masked language modeling (MLM) objective, which frames learning as a “fill-in-the-blank” task. This is problematic in the context of proteins, where proteins do not evolve to complete missing residues but rather fold into three-dimensional structures governed by complex structural and functional constraints. Therefore, the MLM objective may fail to capture the underlying biological principles that drive protein behavior. ESM-3 takes a substantial step forward by realigning the training objective with biological reality, which shifts from a pure language-based framework to a multi-modal generative architecture that jointly models sequence, structure, and function in a unified manner.
+Models such as ESM-2 remain constrained by the limitations of the masked language modeling (MLM) objective, which frames learning as a "fill-in-the-blank" task. This is problematic in the context of proteins, where proteins do not evolve to complete missing residues but rather fold into three-dimensional structures governed by complex structural and functional constraints. Therefore, the MLM objective may fail to capture the underlying biological principles that drive protein behavior. ESM-3 takes a substantial step forward by realigning the training objective with biological reality, which shifts from a pure language-based framework to a multi-modal generative architecture that jointly models sequence, structure, and function in a unified manner.
 
 #### Multi-modal MLM with consistent tokenization
 
@@ -142,14 +142,14 @@ ESM-3 demonstrates strong unconditional generative capabilities, capable of prod
 #### Conditional generation
 
 
-ESM-3 accepts diverse prompts as input due to its multi-modal architecture, enabling it to generate proteins conditioned on sequence, structure, or function. In this example, ESM-3 is prompted with structural constraints, specifically symmetry, and successfully generates proteins exhibiting the desired symmetrical folds. This demonstrates the model’s ability to follow structural prompts and produce proper outputs. Such controllable generation highlights the potential of ESM-3 as a flexible tool for protein design.
+ESM-3 accepts diverse prompts as input due to its multi-modal architecture, enabling it to generate proteins conditioned on sequence, structure, or function. In this example, ESM-3 is prompted with structural constraints, specifically symmetry, and successfully generates proteins exhibiting the desired symmetrical folds. This demonstrates the model's ability to follow structural prompts and produce proper outputs. Such controllable generation highlights the potential of ESM-3 as a flexible tool for protein design.
 
 ![image](https://hackmd.io/_uploads/B1dILXVzxx.png)
 *Prompting for symmetric proteins*
 
 #### Conditional generation with different combinations of prompts
 
-Moreover, ESM-3 demonstrates the ability to generate proteins conditionally by combining multiple types of prompts. As shown in the figure, ESM-3 can successfully integrate structural folds like alpha/beta hydrolase and functional sites such as motifs and binding sites. The resulting proteins not only adopt the correct overall fold but also position the functional motifs in accurate positions. This highlights ESM-3’s potential for protein design, where users can guide the generative model to design multi-objective desirable proteins by simply specifying structural and functional components as prompts.
+Moreover, ESM-3 demonstrates the ability to generate proteins conditionally by combining multiple types of prompts. As shown in the figure, ESM-3 can successfully integrate structural folds like alpha/beta hydrolase and functional sites such as motifs and binding sites. The resulting proteins not only adopt the correct overall fold but also position the functional motifs in accurate positions. This highlights ESM-3's potential for protein design, where users can guide the generative model to design multi-objective desirable proteins by simply specifying structural and functional components as prompts.
 
 ![image](https://hackmd.io/_uploads/Sku3OQNfex.png)
 *Conditional generation with multiple prompts*
