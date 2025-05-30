@@ -14,12 +14,12 @@ Recent advances in large language models (LLMs) have revolutionized fields such 
 
 Traditional protein structure prediction relied heavily on physics-based simulations, which is very slow. A breakthrough came with AlphaFold2, which leverages multiple sequence alignments (MSAs) and attention-based neural networks to infer 3D structure from amino acid sequences. However, generating MSAs is computationally expensive, as it involves searching massive databases to identify related sequences and aligning them to identify conserved subsequences.
 
-<img src="https://hackmd.io/_uploads/r1XUeSHMgg.png" alt="MSA: computationally expensive alignment to identify conserved mutations" width="400px">
+<img src="https://hackmd.io/_uploads/r1XUeSHMgg.png" alt="MSA: computationally expensive alignment to identify conserved mutations" width="600px">
 *MSA: computationally expensive alignment to identify conserved mutations*
 
 In contrast, the protein language models including the ESM series bypass this step by treating protein sequences as a language. These models are trained on millions of protein sequences and learn rich contextual embeddings directly from sequence data. Notably, they capture structural constraints, folding patterns, and even functioning, which is analogous to how GPT learns grammar and semantics from text.
 
-<img src="https://hackmd.io/_uploads/ryhSLBrzll.png" alt="Protein language models" width="400px">
+<img src="https://hackmd.io/_uploads/ryhSLBrzll.png" alt="Protein language models" width="600px">
 *Protein language models*
 
 ⸻
@@ -35,7 +35,7 @@ ESMFold demonstrates that full atomic-level protein structures can be directly i
 
 ESMFold consists of three components: ESM-2, folding trunk, and structure module. Specifically, ESM-2 learns the meaningful embeddings of protein sequences with masked language modeling (MLM). Then, the folding trunk is trained for end-to-end single-sequence structure prediction. Next, the output of the folding block is passed to an equivariant transformer structure module. Finally, the recycling is performed before outputting a final atomic-level structure. 
 
-![image](https://hackmd.io/_uploads/r1IYPrrzle.png)
+<img src="https://hackmd.io/_uploads/r1IYPrrzle.png" alt="ESMFold model architecture width="600px">
 *ESMFold model architecture*
 
 #### ESM-2
